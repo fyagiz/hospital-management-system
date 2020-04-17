@@ -1,4 +1,5 @@
 #include <iostream>
+#include "employee.h"
 
 /*
                                                             Furkan Yagiz 2152197
@@ -10,6 +11,11 @@
 void menu();
 
 int main(){
+
+    Employee e1;
+    std::cout << e1.getAddress();
+    e1.setAddress("test");
+    std::cout << e1.getAddress();
 
     menu();
 
