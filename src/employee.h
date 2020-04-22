@@ -18,15 +18,15 @@ class Employee{
         // Default constructor
         Employee();
         // Specialized constructor
-        Employee(int, int, int, char *, char *, char *, char *);
+        Employee(int, int, int, const char *, const char *, const char *, const char *);
         // Setters
         void setEmployeeID(int);
         void setTelephoneNumber(int);
         void setAnnualSalary(int);
-        void setFirstName(char *);
-        void setLastName(char *);
-        void setAddress(char *);
-        void setEmail(char *);
+        void setFirstName(const char *);
+        void setLastName(const char *);
+        void setAddress(const char *);
+        void setEmail(const char *);
         // Getters
         int getEmployeeID();
         int getTelephoneNumber();
