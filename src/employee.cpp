@@ -8,10 +8,13 @@ Employee::Employee(){
     telephoneNumber = -1;
     annualSalary = -1;
 
-    firstName = new char[100];
-    lastName = new char[100];
-    address = new char[100];
-    email = new char[100];
+    int size;
+
+    size = strlen("null first name");
+    firstName = new char[size];
+    lastName = new char[size];
+    address = new char[size];
+    email = new char[size];
 
     strcpy(this->firstName, "null first name");
     strcpy(this->lastName, "null last name");
@@ -21,16 +24,16 @@ Employee::Employee(){
 }
 
 // Specialized constructor
-Employee::Employee(int employeeID, int telephoneNumber, int annualSalary, char *firstName, char *lastName, char *address, char *email){
+Employee::Employee(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, const char *address, const char *email){
 
     this->employeeID = employeeID;
     this->telephoneNumber = telephoneNumber;
     this->annualSalary = annualSalary;
 
-    this->firstName = new char[100];
-    this->lastName = new char[100];
-    this->address = new char[100];
-    this->email = new char[100];
+    this->firstName = new char[strlen(firstName)];
+    this->lastName = new char[strlen(lastName)];
+    this->address = new char[strlen(address)];
+    this->email = new char[strlen(email)];
 
     strcpy(this->firstName, firstName);
     strcpy(this->lastName, lastName);
@@ -52,20 +55,28 @@ void Employee::setAnnualSalary(int annualSalary){
     this->annualSalary = annualSalary;
 }
 
-void Employee::setFirstName(char *firstName){
+void Employee::setFirstName(const char *firstName){
+    delete[] this->firstName;
+    this->firstName = new char[strlen(firstName)];
     strcpy(this->firstName, firstName);
 }
 
-void Employee::setLastName(char *lastName){
+void Employee::setLastName(const char *lastName){
+    delete[] this->lastName;
+    this->lastName = new char[strlen(lastName)];
     strcpy(this->lastName, lastName);
 }
 
-void Employee::setAddress(char *address){
+void Employee::setAddress(const char *address){
+    delete[] this->address;
+    this->address = new char[strlen(address)];
     strcpy(this->address, address);
 }
 
-void Employee::setEmail(char *email){
-    strcpy(this->email, email);
+void Employee::setEmail(const char *email){
+    delete[] this->email;
+    this->email = new char[strlen(email)];
+    strcpy(this->address, email);
 }
 
 // Getters
