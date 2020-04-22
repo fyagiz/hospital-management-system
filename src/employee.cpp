@@ -1,4 +1,5 @@
 #include <cstring>
+#include <iostream>
 #include "employee.h"
 
 // Default constructor
@@ -106,6 +107,15 @@ char *Employee::getAddress(){
 
 char *Employee::getEmail(){
     return email;
+}
+
+// This function will show the employee's information
+void Employee::showEmployeeInfo(){
+    std::cout << "Employee ID: " << employeeID << std::endl;
+    std::cout << "First Name: " << firstName << std::endl;
+    std::cout << "Last Name: " << lastName << std::endl;
+    std::cout << "Telephone number: " << telephoneNumber << std::endl;
+    std::cout << "E-Mail: " << email << std::endl;
 }
 
 // Destructor
