@@ -11,11 +11,10 @@ Employee::Employee(){
 
     int size;
 
-    size = strlen("null first name");
-    firstName = new char[size];
-    lastName = new char[size];
-    address = new char[size];
-    email = new char[size];
+    firstName = new char[100];
+    lastName = new char[100];
+    address = new char[100];
+    email = new char[100];
 
     strcpy(this->firstName, "null first name");
     strcpy(this->lastName, "null last name");
@@ -57,26 +56,18 @@ void Employee::setAnnualSalary(int annualSalary){
 }
 
 void Employee::setFirstName(const char *firstName){
-    delete[] this->firstName;
-    this->firstName = new char[strlen(firstName)];
     strcpy(this->firstName, firstName);
 }
 
 void Employee::setLastName(const char *lastName){
-    delete[] this->lastName;
-    this->lastName = new char[strlen(lastName)];
     strcpy(this->lastName, lastName);
 }
 
 void Employee::setAddress(const char *address){
-    delete[] this->address;
-    this->address = new char[strlen(address)];
     strcpy(this->address, address);
 }
 
 void Employee::setEmail(const char *email){
-    delete[] this->email;
-    this->email = new char[strlen(email)];
     strcpy(this->address, email);
 }
 
