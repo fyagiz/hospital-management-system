@@ -5,15 +5,15 @@
 // Default constructor
 Doctor::Doctor(){
     Employee();
-    doctorTitle = Intern;
+    dTitle = Intern;
 }
 
-Doctor::Doctor(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, char const *address, char const *email, title doctorTitle) 
-                : doctorTitle(doctorTitle), Employee(employeeID, telephoneNumber, annualSalary, firstName, lastName, address, email) {}
+Doctor::Doctor(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, char const *address, char const *email, doctorTitle title) 
+                : dTitle(title), Employee(employeeID, telephoneNumber, annualSalary, firstName, lastName, address, email) {}
 
 const char *Doctor::getTitle(){
 
-    switch(doctorTitle){
+    switch(dTitle){
         case 0:
             return "Intern";
             break;
@@ -35,6 +35,6 @@ const char *Doctor::getTitle(){
     }
     return NULL;
 }
-void Doctor::setTitle(title doctorTitle){
-    this->doctorTitle = doctorTitle;
+void Doctor::setTitle(doctorTitle title){
+    this->dTitle = title;
 }

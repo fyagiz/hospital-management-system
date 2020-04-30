@@ -2,24 +2,24 @@
 #define DOCTOR_H
 #include "employee.h"
 
-enum title {Intern, Practitioner, Assistant, Specialist, Docent, Professor};
+enum doctorTitle {Intern, Practitioner, Assistant, Specialist, Docent, Professor};
 
 class Doctor : public Employee{
     
     private:
 
-        title doctorTitle;
+        doctorTitle dTitle;
 
     public:
 
         // Default constructor
         Doctor();
         // Specialized constructor
-        Doctor(int, int, int, const char *, const char *, const char *, const char *, title);
+        Doctor(int, int, int, const char *, const char *, const char *, const char *, doctorTitle);
 
         // Getter and Setter Functions
         const char *getTitle();
-        void setTitle(title);
+        void setTitle(doctorTitle);
 };
 
 #endif
