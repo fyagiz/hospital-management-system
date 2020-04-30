@@ -35,3 +35,6 @@ const char *Doctor::getTitle(){
     }
     return NULL;
 }
+void Doctor::setTitle(title doctorTitle){
+    this->doctorTitle = doctorTitle;
+}
