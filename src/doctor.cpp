@@ -32,9 +32,12 @@ const char *Doctor::getTitle(){
         case 5:
             return "Professor";
             break;
+        default:
+            return NULL;
+            break;
     }
-    return NULL;
 }
+
 void Doctor::setTitle(doctorTitle title){
     this->dTitle = title;
 }
