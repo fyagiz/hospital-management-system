@@ -19,8 +19,9 @@ const char *Nurse::getTitle(){
         case 1:
             return "Midwife";
             break;
+        default:
+            return NULL;
     }
-    return NULL;
 }
 
 void Nurse::setTitle(nurseTitle title){
