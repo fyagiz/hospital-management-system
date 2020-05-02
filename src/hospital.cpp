@@ -104,3 +104,7 @@ int Hospital::listTotalAnnualSalaryOfGivenTeam(int teamID){
         return 0;
     }
 }
+
+Team *Hospital::getTeams(){
+    return this->teams;
+}

@@ -36,6 +36,9 @@ class Hospital{
         // List total annual salary of a given team
         int listTotalAnnualSalaryOfGivenTeam(int);
 
+        // Get Teams
+        Team *getTeams();
+
 };
 
 #endif
