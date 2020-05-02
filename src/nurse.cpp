@@ -28,19 +28,17 @@ void Nurse::setTitle(nurseTitle title){
     this->nTitle = title;
 }
 
-int Nurse::overtimeAnnualSalaryCalculate(int overTime){
+void Nurse::overtimeAnnualSalaryCalculate(int overTime){
     int newAnnualSalary = getAnnualSalary();
 
     if (!strcmp("General", getTitle())){
         newAnnualSalary += (overTime * 20) * 52;
         setAnnualSalary(newAnnualSalary);
-        return newAnnualSalary;
     }
 
     else{
         newAnnualSalary += (overTime * 30) * 52;
         setAnnualSalary(newAnnualSalary);
-        return newAnnualSalary;
     }
 }
 

@@ -21,7 +21,7 @@ class Nurse : public Employee{
         void setTitle(nurseTitle);
 
         // Annual Salary Calculator
-        int overtimeAnnualSalaryCalculate(int);
+        void overtimeAnnualSalaryCalculate(int);
 
         // Assignment Operator
         Nurse &operator=(const Nurse &);
