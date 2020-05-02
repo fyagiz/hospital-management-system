@@ -21,7 +21,7 @@ class Admin : public Employee{
         void setType(adminType);
 
         // Annual Salary Calculator
-        int anualSalaryCalculator(int);
+        void overTimeSalaryCalculator(int);
 
         // Assignment Operator
         Admin &operator=(const Admin &);

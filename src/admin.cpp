@@ -29,19 +29,17 @@ void Admin::setType(adminType type){
     this->aType = type;
 }
 
-int Admin::anualSalaryCalculator(int hours){
+void Admin::overTimeSalaryCalculator(int hours){
     int newAnnualSalary = getAnnualSalary();
 
     if (!strcmp("Manager", getType())){
         newAnnualSalary += (hours * 50) * 52;
         setAnnualSalary(newAnnualSalary);
-        return newAnnualSalary;
     }
 
     else{
         newAnnualSalary += (hours * 20) * 52;
         setAnnualSalary(newAnnualSalary);
-        return newAnnualSalary;
     }
 }
 
