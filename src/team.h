@@ -30,7 +30,7 @@ class Team{
         void setTeamID(int);
         void setTeamLeader(Doctor *);
 
-        // Add a new team member function
+        // Add a new team member functions
         void addDoctorToTeam(Doctor *);
         void addNurseToTeam(Nurse *);
         void addAdminToTeam(Admin *);

@@ -23,9 +23,9 @@ class Hospital{
 
         // Add New Team
         int addNewTeam(int);
-        //  Search for the details of a given employeeID
+        // Search for the details of a given employeeID
         void employeeSearchByID(int);
-        //  Get team with teamID
+        // Get team with teamID
         Team *getTeamByID(int);
         // List All Members
         void listAllMembers();

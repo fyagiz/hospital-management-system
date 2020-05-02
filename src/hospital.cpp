@@ -8,15 +8,18 @@
 #include "nurse.h"
 #include "hospital.h"
 
+// Default constructor
 Hospital::Hospital(){
 
     teams = new Team [100];
 }
 
+// Destructor
 Hospital::~Hospital(){
     delete[] teams;
 }
 
+// Add New Team
 int Hospital::addNewTeam(int teamID){
     int i;
     for (i=0;i<100;i++){
@@ -30,6 +33,7 @@ int Hospital::addNewTeam(int teamID){
     return -1;
 }
 
+// Search for the details of a given employeeID
 void Hospital::employeeSearchByID(int employeeID){
     int i;
 
@@ -44,6 +48,7 @@ void Hospital::employeeSearchByID(int employeeID){
     }
 }
 
+// Get team with teamID
 Team *Hospital::getTeamByID(int teamID){
     int i;
     Team *temp = new Team();
@@ -57,6 +62,7 @@ Team *Hospital::getTeamByID(int teamID){
     return temp;
 }
 
+// List All Members
 void Hospital::listAllMembers(){
     int i;
     for(i=0;i<100;i++){
@@ -69,6 +75,7 @@ void Hospital::listAllMembers(){
     }
 }
 
+// Total Annual Salary
 int Hospital::totalAnnualSalary(){
     int i;
     int total;
@@ -86,6 +93,7 @@ int Hospital::totalAnnualSalary(){
     return total;
 }
 
+// List all members of a given team
 void Hospital::listAllMembersOfGivenTeam(int teamID){
     Team *tmp = getTeamByID(teamID);
     if (tmp->getTeamID() != -1)
@@ -95,6 +103,7 @@ void Hospital::listAllMembersOfGivenTeam(int teamID){
     
 }
 
+// List total annual salary of a given team
 int Hospital::listTotalAnnualSalaryOfGivenTeam(int teamID){
     Team *tmp = getTeamByID(teamID);
     if (tmp->getTeamID() != -1)
@@ -105,6 +114,7 @@ int Hospital::listTotalAnnualSalaryOfGivenTeam(int teamID){
     }
 }
 
+// Get Teams
 Team *Hospital::getTeams(){
     return this->teams;
 }

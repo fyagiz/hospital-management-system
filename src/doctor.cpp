@@ -9,9 +9,11 @@ Doctor::Doctor(){
     dTitle = Intern;
 }
 
+// Specialized constructor
 Doctor::Doctor(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, char const *address, char const *email, doctorTitle title) 
                 : dTitle(title), Employee(employeeID, telephoneNumber, annualSalary, firstName, lastName, address, email) {}
 
+// Getter and Setter Functions
 const char *Doctor::getTitle(){
 
     switch(dTitle){
@@ -43,6 +45,7 @@ void Doctor::setTitle(doctorTitle title){
     this->dTitle = title;
 }
 
+// Assignment Operator
 Doctor &Doctor::operator=(const Doctor &existing_doctor){
     
     if (this == &existing_doctor){

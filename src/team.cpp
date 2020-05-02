@@ -7,18 +7,22 @@
 #include "employee.h"
 #include "nurse.h"
 
-int adminListSearch(Admin *, int);
-int doctorListSearch(Doctor *, int);
-int nurseListSearch(Nurse *, int);
+// Auxiliary Function Prototypes
+int adminListSearch(Admin *, int); // This function traverse admin list.
+int doctorListSearch(Doctor *, int); // This function traverse doctor list.
+int nurseListSearch(Nurse *, int); // This function traverse nurse list.
 
-int adminListAnnualCostCalculator(Admin *);
-int doctorListAnnualCostCalculator(Doctor *);
-int nurseListAnnualCostCalculator(Nurse *);
+int adminListAnnualCostCalculator(Admin *); // This function calculates annual cost for admins.
+int doctorListAnnualCostCalculator(Doctor *); // This function calculates annual cost for doctors.
+int nurseListAnnualCostCalculator(Nurse *); // This function calculates annual cost for nurses.
 
-void adminListPrinter(Admin *);
-void doctorListPrinter(Doctor *);
-void nurseListPrinter(Nurse *);
+void adminListPrinter(Admin *); // This function prints admins.
+void doctorListPrinter(Doctor *); // This function print doctors.
+void nurseListPrinter(Nurse *); // This function print nurses.
 
+void teamCapacityFull(); // This function gives error when team capacity is full.
+
+// Default constructor
 Team::Team(){
     teamID = -1;
     size = 0;
@@ -28,6 +32,7 @@ Team::Team(){
     nurseList = new Nurse [25];
 }
 
+// Specialized constructor
 Team::Team(int teamID){
     this->teamID = teamID;
     size = 0;
@@ -39,6 +44,7 @@ Team::Team(int teamID){
 
 }
 
+// Getter and Setter Functions
 int Team::getTeamID(){
     return this->teamID;
 }
@@ -59,42 +65,58 @@ void Team::setTeamLeader(Doctor *newTeamLeader){
         this->teamLeader = newTeamLeader;
 }
 
+// Add a new team member functions
 void Team::addDoctorToTeam(Doctor *addDoctor){
     int i=0;
-
-    for (i=0;i<25;i++){
-        if (doctorList[i].getEmployeeID() == -1){
-            doctorList[i] = *addDoctor;
-            break;
-        }
+    if (size >=25){
+        teamCapacityFull();
     }
-    size++;
+    else{
+        for (i=0;i<25;i++){
+            if (doctorList[i].getEmployeeID() == -1){
+                doctorList[i] = *addDoctor;
+                break;
+            }
+        }
+        size++;
+    }
 }
 
 void Team::addNurseToTeam(Nurse *addNurse){
     int i=0;
 
-    for (i=0;i<25;i++){
-        if (nurseList[i].getEmployeeID() == -1){
-            nurseList[i] = *addNurse;
-            break;
-        }
+    if (size >=25){
+        teamCapacityFull();
     }
-    size++;
+    else{
+        for (i=0;i<25;i++){
+            if (nurseList[i].getEmployeeID() == -1){
+                nurseList[i] = *addNurse;
+                break;
+            }
+        }
+        size++;
+    }
 }
 
 void Team::addAdminToTeam(Admin *addAdmin){
     int i=0;
 
-    for (i=0;i<25;i++){
-        if (adminList[i].getEmployeeID() == -1){
-            adminList[i] = *addAdmin;
-            break;
-        }
+    if (size >=25){
+        teamCapacityFull();
     }
-    size++;
+    else{
+        for (i=0;i<25;i++){
+            if (adminList[i].getEmployeeID() == -1){
+                adminList[i] = *addAdmin;
+                break;
+            }
+        }
+        size++;
+    }
 }
 
+// List the team leader and the members function
 void Team::listLeaderAndMembers(){
     
     if (size == 0){
@@ -116,6 +138,7 @@ void Team::listLeaderAndMembers(){
     }
 }
 
+// Annual Cost Calculator
 int Team::teamAnnualCostCalculator(){
     int teamAnnualCost = 0;
     
@@ -127,6 +150,7 @@ int Team::teamAnnualCostCalculator(){
     return teamAnnualCost;
 }
 
+// Search employee function
 bool Team::searchEmployeeByEmployeeID(int employeeID){
     int aFlag;
     int dFlag;
@@ -178,6 +202,7 @@ bool Team::searchEmployeeByEmployeeID(int employeeID){
     
 }
 
+// This function traverses admin list.
 int adminListSearch(Admin *adminList, int employeeID){
     int i;
     
@@ -193,6 +218,7 @@ int adminListSearch(Admin *adminList, int employeeID){
     return -1;
 }
 
+// This function will traverse doctor list.
 int doctorListSearch(Doctor *doctorList, int employeeID){
     int i;
     
@@ -208,6 +234,7 @@ int doctorListSearch(Doctor *doctorList, int employeeID){
     return -1;
 }
 
+// This function traverses nurse list.
 int nurseListSearch(Nurse *nurseList, int employeeID){
     int i;
     
@@ -223,6 +250,7 @@ int nurseListSearch(Nurse *nurseList, int employeeID){
     return -1;
 }
 
+// This function calculates annual cost for admins.
 int adminListAnnualCostCalculator(Admin *adminList){
     int total = 0;
     int i;
@@ -238,6 +266,7 @@ int adminListAnnualCostCalculator(Admin *adminList){
     return total;
 }
 
+// This function calculates annual cost for doctors.
 int doctorListAnnualCostCalculator(Doctor *doctorList){
     int total = 0;
     int i;
@@ -253,6 +282,7 @@ int doctorListAnnualCostCalculator(Doctor *doctorList){
     return total;
 }
 
+// This function calculates annual cost for nurses.
 int nurseListAnnualCostCalculator(Nurse *nurseList){
     int total = 0;
     int i;
@@ -268,6 +298,7 @@ int nurseListAnnualCostCalculator(Nurse *nurseList){
     return total;
 }
 
+// This function prints admins
 void adminListPrinter(Admin *adminList){
     int i;
 
@@ -280,6 +311,7 @@ void adminListPrinter(Admin *adminList){
     }
 }
 
+// This function print doctors.
 void doctorListPrinter(Doctor *doctorList){
     int i;
 
@@ -292,6 +324,7 @@ void doctorListPrinter(Doctor *doctorList){
     }
 }
 
+// This function print nurses.
 void nurseListPrinter(Nurse *nurseList){
     int i;
 
@@ -304,9 +337,15 @@ void nurseListPrinter(Nurse *nurseList){
     }
 }
 
+// Destructor
 Team::~Team(){
     delete teamLeader;
     delete[] adminList;
     delete[] doctorList;
     delete[] nurseList;
+}
+
+void teamCapacityFull(){
+
+    std::cout << "Team capacity is full! Max capacity is 25." << std::endl;
 }
