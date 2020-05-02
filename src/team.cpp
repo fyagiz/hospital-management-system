@@ -7,9 +7,9 @@
 #include "employee.h"
 #include "nurse.h"
 
-bool adminListSearch(Admin *, int);
-bool doctorListSearch(Doctor *, int);
-bool nurseListSearch(Nurse *, int);
+int adminListSearch(Admin *, int);
+int doctorListSearch(Doctor *, int);
+int nurseListSearch(Nurse *, int);
 
 int adminListAnnualCostCalculator(Admin *);
 int doctorListAnnualCostCalculator(Doctor *);
@@ -128,64 +128,99 @@ int Team::teamAnnualCostCalculator(){
 }
 
 bool Team::searchEmployeeByEmployeeID(int employeeID){
+    int aFlag;
+    int dFlag;
+    int nFlag;
+
+    aFlag = adminListSearch(adminList, employeeID);
+    dFlag = doctorListSearch(doctorList, employeeID);
+    nFlag = nurseListSearch(nurseList, employeeID);
+
+    if (teamLeader->getEmployeeID() == employeeID){
+
+        std::cout << "It is found in team " << teamID << ". ";
+        std::cout << "The details are listed below." << std::endl;
+        teamLeader->showEmployeeInfo();
+        
+        return true;
+    }
+
+    else if(aFlag != -1){
+
+        std::cout << "It is found in team " << teamID << ". ";
+        std::cout << "The details are listed below." << std::endl;
+        adminList[aFlag].showEmployeeInfo();
+        
+        return true;
+    }
+
+    else if(dFlag != -1){
+
+        std::cout << "It is found in team " << teamID << ". ";
+        std::cout << "The details are listed below." << std::endl;
+        doctorList[dFlag].showEmployeeInfo();
+        
+        return true;
+    }
+
+    else if(nFlag != -1){
+
+        std::cout << "It is found in team " << teamID << ". ";
+        std::cout << "The details are listed below." << std::endl;
+        nurseList[nFlag].showEmployeeInfo();
+        
+        return true;
+    }
     
-    if(adminListSearch(adminList, employeeID))
-        return true;
-    else if(doctorListSearch(doctorList, employeeID))
-        return true;
-    else if(nurseListSearch(nurseList, employeeID))
-        return true;
     else
         return false;
     
+    
 }
 
-bool adminListSearch(Admin *adminList, int employeeID){
+int adminListSearch(Admin *adminList, int employeeID){
     int i;
-    bool flag = false;
     
     for(i=0;i<25;i++){
         if (adminList[i].getEmployeeID() == -1)
             break;
         if(adminList[i].getEmployeeID() == employeeID){
-            flag = true;
+            return i;
             break;
         }
     }
 
-    return flag;
+    return -1;
 }
 
-bool doctorListSearch(Doctor *doctorList, int employeeID){
+int doctorListSearch(Doctor *doctorList, int employeeID){
     int i;
-    bool flag = false;
     
     for(i=0;i<25;i++){
         if (doctorList[i].getEmployeeID() == -1)
             break;
         if(doctorList[i].getEmployeeID() == employeeID){
-            flag = true;
+            return i;
             break;
         }
     }
 
-    return flag;
+    return -1;
 }
 
-bool nurseListSearch(Nurse *nurseList, int employeeID){
+int nurseListSearch(Nurse *nurseList, int employeeID){
     int i;
-    bool flag = false;
     
     for(i=0;i<25;i++){
         if (nurseList[i].getEmployeeID() == -1)
             break;
         if(nurseList[i].getEmployeeID() == employeeID){
-            flag = true;
+            return i;
             break;
         }
     }
 
-    return flag;
+    return -1;
 }
 
 int adminListAnnualCostCalculator(Admin *adminList){
