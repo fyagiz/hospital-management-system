@@ -68,7 +68,7 @@ void Employee::setAddress(const char *address){
 }
 
 void Employee::setEmail(const char *email){
-    strcpy(this->address, email);
+    strcpy(this->email, email);
 }
 
 // Getters
