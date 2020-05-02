@@ -3,7 +3,7 @@
 
 class Employee{
 
-    private:
+    protected:
 
         int employeeID;
         int telephoneNumber;

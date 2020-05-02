@@ -20,6 +20,9 @@ class Doctor : public Employee{
         // Getter and Setter Functions
         const char *getTitle();
         void setTitle(doctorTitle);
+
+        // Assignment Operator
+        Doctor &operator=(const Doctor &);
 };
 
 #endif

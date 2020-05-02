@@ -23,6 +23,9 @@ class Nurse : public Employee{
         // Annual Salary Calculator
         int overtimeAnnualSalaryCalculate(int);
 
+        // Assignment Operator
+        Nurse &operator=(const Nurse &);
+
 };
 
 #endif

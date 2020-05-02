@@ -23,6 +23,9 @@ class Admin : public Employee{
         // Annual Salary Calculator
         int anualSalaryCalculator(int);
 
+        // Assignment Operator
+        Admin &operator=(const Admin &);
+
 };
 
 #endif

@@ -43,3 +43,21 @@ int Nurse::overtimeAnnualSalaryCalculate(int overTime){
         return newAnnualSalary;
     }
 }
+
+Nurse &Nurse::operator=(const Nurse &existing_nurse){
+    
+    if (this == &existing_nurse){
+        return *this;
+    }
+    
+    employeeID = existing_nurse.employeeID;
+    telephoneNumber = existing_nurse.employeeID;
+    annualSalary = existing_nurse.annualSalary;
+    strcpy(firstName, existing_nurse.firstName);
+    strcpy(lastName, existing_nurse.lastName);
+    strcpy(address, existing_nurse.address);
+    strcpy(email, existing_nurse.email);
+    nTitle = existing_nurse.nTitle;
+
+    return *this;
+}

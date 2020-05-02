@@ -102,11 +102,11 @@ char *Employee::getEmail(){
 
 // This function will show the employee's information
 void Employee::showEmployeeInfo(){
-    std::cout << "Employee ID: " << employeeID << std::endl;
-    std::cout << "First Name: " << firstName << std::endl;
-    std::cout << "Last Name: " << lastName << std::endl;
-    std::cout << "Telephone number: " << telephoneNumber << std::endl;
-    std::cout << "E-Mail: " << email << std::endl;
+            std::cout << employeeID << " ";
+            std::cout << firstName << " ";
+            std::cout << lastName << " ";
+            std::cout << telephoneNumber << " ";
+            std::cout << email << " " << std::endl;
 }
 
 // Destructor

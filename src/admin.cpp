@@ -44,3 +44,21 @@ int Admin::anualSalaryCalculator(int hours){
         return newAnnualSalary;
     }
 }
+
+Admin &Admin::operator=(const Admin &existing_admin){
+    
+    if (this == &existing_admin){
+        return *this;
+    }
+    
+    employeeID = existing_admin.employeeID;
+    telephoneNumber = existing_admin.employeeID;
+    annualSalary = existing_admin.annualSalary;
+    strcpy(firstName, existing_admin.firstName);
+    strcpy(lastName, existing_admin.lastName);
+    strcpy(address, existing_admin.address);
+    strcpy(email, existing_admin.email);
+    aType = existing_admin.aType;
+
+    return *this;
+}

@@ -1,6 +1,7 @@
 #include <cstring>
 #include <iostream>
 #include "doctor.h"
+#include "employee.h"
 
 // Default constructor
 Doctor::Doctor(){
@@ -40,4 +41,22 @@ const char *Doctor::getTitle(){
 
 void Doctor::setTitle(doctorTitle title){
     this->dTitle = title;
+}
+
+Doctor &Doctor::operator=(const Doctor &existing_doctor){
+    
+    if (this == &existing_doctor){
+        return *this;
+    }
+    
+    employeeID = existing_doctor.employeeID;
+    telephoneNumber = existing_doctor.employeeID;
+    annualSalary = existing_doctor.annualSalary;
+    strcpy(firstName, existing_doctor.firstName);
+    strcpy(lastName, existing_doctor.lastName);
+    strcpy(address, existing_doctor.address);
+    strcpy(email, existing_doctor.email);
+    dTitle = existing_doctor.dTitle;
+
+    return *this;
 }
