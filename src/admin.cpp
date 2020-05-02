@@ -2,14 +2,17 @@
 #include <iostream>
 #include "admin.h"
 
+// Default constructor
 Admin::Admin(){
     Employee();
     aType = Secretary;
 }
 
+// Specialized constructor
 Admin::Admin(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, char const *address, char const *email, adminType title) 
                 : aType(title), Employee(employeeID, telephoneNumber, annualSalary, firstName, lastName, address, email) {}
-            
+
+// Getter and Setter Functions   
 const char *Admin::getType(){
 
     switch(aType){
@@ -29,6 +32,7 @@ void Admin::setType(adminType type){
     this->aType = type;
 }
 
+// Annual Salary Calculator
 void Admin::overTimeSalaryCalculator(int hours){
     int newAnnualSalary = getAnnualSalary();
 
@@ -43,6 +47,7 @@ void Admin::overTimeSalaryCalculator(int hours){
     }
 }
 
+// Assignment Operator
 Admin &Admin::operator=(const Admin &existing_admin){
     
     if (this == &existing_admin){

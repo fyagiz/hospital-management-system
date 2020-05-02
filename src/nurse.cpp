@@ -2,14 +2,17 @@
 #include <iostream>
 #include "nurse.h"
 
+// Default constructor
 Nurse::Nurse(){
     Employee();
     nTitle = General;
 }
 
+// Specialized constructor
 Nurse::Nurse(int employeeID, int telephoneNumber, int annualSalary, const char *firstName, const char *lastName, char const *address, char const *email, nurseTitle title) 
                 : nTitle(title), Employee(employeeID, telephoneNumber, annualSalary, firstName, lastName, address, email) {}
 
+// Getter and Setter Functions
 const char *Nurse::getTitle(){
 
     switch(nTitle){
@@ -28,6 +31,7 @@ void Nurse::setTitle(nurseTitle title){
     this->nTitle = title;
 }
 
+// Annual Salary Calculator
 void Nurse::overtimeAnnualSalaryCalculate(int overTime){
     int newAnnualSalary = getAnnualSalary();
 
@@ -42,6 +46,7 @@ void Nurse::overtimeAnnualSalaryCalculate(int overTime){
     }
 }
 
+// Assignment Operator
 Nurse &Nurse::operator=(const Nurse &existing_nurse){
     
     if (this == &existing_nurse){

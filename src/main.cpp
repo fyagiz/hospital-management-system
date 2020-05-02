@@ -13,18 +13,18 @@
                                                 Assignment 2 (C++): Hospital Management System
 */
 
-// Function prototypes
-void menu();
-void createTeamMenu(Hospital *);
-void searchMemberByIDMenu(Hospital *);
-void listAllMembersMenu(Hospital *);
-void listTotalAnnualSalaryMenu(Hospital *);
-void listAllMembersOfGivenTeamMenu(Hospital *);
-void listTotalAnnualSalaryOfGivenTeam(Hospital *);
-void getEmployeeInfo(Employee *);
-void addNewDoctor(Team *);
-void addNewNurse(Team *);
-void addNewAdmin(Team *);
+// Auxiliary Function Prototypes
+void menu(); // This function operates menu.
+void createTeamMenu(Hospital *); // This function operates Create Team Menu.
+void searchMemberByIDMenu(Hospital *); // This function operates Search Member By ID Menu
+void listAllMembersMenu(Hospital *); // This function operates listing all members menu.
+void listTotalAnnualSalaryMenu(Hospital *); // This function operates listing total annual salary menu.
+void listAllMembersOfGivenTeamMenu(Hospital *); // This function operates listing all members of a given team menu.
+void listTotalAnnualSalaryOfGivenTeam(Hospital *); // This function operates listing total annual salary of a given team menu.
+void getEmployeeInfo(Employee *); // This function takes employee information from user.
+void addNewDoctor(Team *); // This function adds new doctor into the team.
+void addNewNurse(Team *); // This function adds new nurse into the team.
+void addNewAdmin(Team *); // This function adds new admin into the team.
 
 int main(){
 
@@ -33,6 +33,7 @@ int main(){
     return 0;
 }
 
+// This function operates menu.
 void menu(){
     char command;
     Hospital *hospital = new Hospital;
@@ -82,6 +83,7 @@ void menu(){
     }while (command != '7');
 }
 
+// This function operates Create Team Menu
 void createTeamMenu(Hospital *hospital){
 
     int integer_input;
@@ -161,6 +163,7 @@ void createTeamMenu(Hospital *hospital){
     std::cout << "The team has been added to the hospital successfully!" << std::endl;
 }
 
+// This function operates Search Member By ID Menu
 void searchMemberByIDMenu(Hospital *hospital){
     int i;
     bool flag = false;
@@ -189,6 +192,7 @@ void searchMemberByIDMenu(Hospital *hospital){
 
 }
 
+// This function operates listing all members menu.
 void listAllMembersMenu(Hospital *hospital){
     int i;
     Team *tmpTeams = hospital->getTeams();
@@ -201,12 +205,14 @@ void listAllMembersMenu(Hospital *hospital){
     }
 }
 
+// This function operates listing total annual salary menu.
 void listTotalAnnualSalaryMenu(Hospital *hospital){
 
     std::cout << "Total annual salary is " << hospital->totalAnnualSalary() << std::endl;
 
 }
 
+// This function operates listing all members of a given team menu.
 void listAllMembersOfGivenTeamMenu(Hospital *hospital){
     int integer_input;
     std::cout << "Enter team ID: ";
@@ -215,6 +221,7 @@ void listAllMembersOfGivenTeamMenu(Hospital *hospital){
     hospital->getTeamByID(integer_input)->listLeaderAndMembers();
 }
 
+// This function operates listing total annual salary of a given team menu.
 void listTotalAnnualSalaryOfGivenTeam(Hospital *hospital){
     int integer_input;
     std::cout << "Enter team ID: ";
@@ -223,6 +230,7 @@ void listTotalAnnualSalaryOfGivenTeam(Hospital *hospital){
     std::cout << "Total annual salary for Team " << integer_input << " is " << hospital->getTeamByID(integer_input)->teamAnnualCostCalculator() << std::endl;
 }
 
+// This function takes employee information from user.
 void getEmployeeInfo(Employee *tmpEmployee){
 
     int integer_input;
@@ -260,6 +268,7 @@ void getEmployeeInfo(Employee *tmpEmployee){
     tmpEmployee->setAnnualSalary(integer_input);
 }
 
+// This function adds new doctor into the team.
 void addNewDoctor(Team *tmpTeam){
 
     int integer_input;
@@ -321,6 +330,7 @@ void addNewDoctor(Team *tmpTeam){
     tmpTeam->addDoctorToTeam(tmpDoctor);
 }
 
+// This function adds new nurse into the team.
 void addNewNurse(Team *tmpTeam){
 
     int integer_input;
@@ -353,6 +363,7 @@ void addNewNurse(Team *tmpTeam){
     tmpTeam->addNurseToTeam(tmpNurse);
 }
 
+// This function adds new admin into the team.
 void addNewAdmin(Team *tmpTeam){
 
     int integer_input;
