@@ -20,22 +20,22 @@ char Menu::showMenu(char command, Hospital *hospital){
     switch(command){
             
         case '1':
-            createTeamMenu(hospital);
+            createTeam(hospital);
             break;
         case '2':
-            searchMemberByIDMenu(hospital);
+            searchMemberByID(hospital);
             break;
         case '3':
-            listAllMembersMenu(hospital);
+            listAllMembers(hospital);
             break;
         case '4':
-            listTotalAnnualSalaryMenu(hospital);
+            listTotalAnnualSalary(hospital);
             break;
         case '5':
-            listAllMembersOfGivenTeamMenu(hospital);
+            listAllMembersOfGivenTeam(hospital);
                 break;
         case '6':
-            listTotalAnnualSalaryOfGivenTeam(hospital);
+            listTotalAnnualSalaryOfGiven(hospital);
             break;
         case '7':
             std::cout << "Goodbye!" << std::endl;
@@ -50,7 +50,7 @@ char Menu::showMenu(char command, Hospital *hospital){
 }
 
 // This function operates Create Team Menu
-void Menu::createTeamMenu(Hospital *hospital){
+void Menu::createTeam(Hospital *hospital){
 
     int integer_input;
     int teamID;
@@ -130,7 +130,7 @@ void Menu::createTeamMenu(Hospital *hospital){
 }
 
 // This function operates Search Member By ID Menu
-void Menu::searchMemberByIDMenu(Hospital *hospital){
+void Menu::searchMemberByID(Hospital *hospital){
     int i;
     bool flag = false;
     int integer_input;
@@ -159,7 +159,7 @@ void Menu::searchMemberByIDMenu(Hospital *hospital){
 }
 
 // This function operates listing all members menu.
-void Menu::listAllMembersMenu(Hospital *hospital){
+void Menu::listAllMembers(Hospital *hospital){
     int i;
     Team *tmpTeams = hospital->getTeams();
 
@@ -172,14 +172,14 @@ void Menu::listAllMembersMenu(Hospital *hospital){
 }
 
 // This function operates listing total annual salary menu.
-void Menu::listTotalAnnualSalaryMenu(Hospital *hospital){
+void Menu::listTotalAnnualSalary(Hospital *hospital){
 
     std::cout << "Total annual salary is " << hospital->totalAnnualSalary() << std::endl;
 
 }
 
 // This function operates listing all members of a given team menu.
-void Menu::listAllMembersOfGivenTeamMenu(Hospital *hospital){
+void Menu::listAllMembersOfGivenTeam(Hospital *hospital){
     int integer_input;
     std::cout << "Enter team ID: ";
     std::cin >> integer_input;
@@ -188,7 +188,7 @@ void Menu::listAllMembersOfGivenTeamMenu(Hospital *hospital){
 }
 
 // This function operates listing total annual salary of a given team menu.
-void Menu::listTotalAnnualSalaryOfGivenTeam(Hospital *hospital){
+void Menu::listTotalAnnualSalaryOfGiven(Hospital *hospital){
     int integer_input;
     std::cout << "Enter team ID: ";
     std::cin >> integer_input;
